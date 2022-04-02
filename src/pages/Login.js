@@ -76,12 +76,12 @@ class Login extends React.Component {
     } = this.state;
 
     return (
-      <main>
+      <>
         { loading ? <Loading /> : (
-          <div data-testid="page-login" className="login-container">
-            <h1 className="login-h1">TrybeWallet</h1>
+          <div data-testid="page-login">
+            <h1>TrybeWallet</h1>
 
-            <h3 className="login-h3">Login</h3>
+            <h3>Login</h3>
 
             <input
               type="email"
@@ -111,7 +111,7 @@ class Login extends React.Component {
           </div>
         )}
         { saved ? <Redirect to="/carteira" /> : '' }
-      </main>
+      </>
     );
   }
 }

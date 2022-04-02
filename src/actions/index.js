@@ -11,6 +11,7 @@ export const receiveUserInfo = (state) => (
 export const receiveWallet = (state) => (
   {
     type: WALLET,
-    state,
+    currencies: state.currencies,
+    expenses: state.expenses,
   }
 );
