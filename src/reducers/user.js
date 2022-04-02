@@ -4,14 +4,16 @@ const INITIAL_STATE = {
   email: '',
 };
 
-function user(state = INITIAL_STATE, action) {
+function userEmail(state = INITIAL_STATE, action) {
   switch (action.type) {
   case USER_INFO:
-    return { ...state,
-      email: action.email };
+    return {
+      ...state,
+      email: action.email,
+    };
   default:
     return state;
   }
 }
 
-export default user;
+export default userEmail;
