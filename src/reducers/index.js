@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
 import userEmail from './user';
-import wallet from './wallet';
+import walletInfo from './wallet';
 
 const rootReducer = combineReducers({
   user: userEmail,
-  wallet });
+  wallet: walletInfo,
+});
 
 export default rootReducer;

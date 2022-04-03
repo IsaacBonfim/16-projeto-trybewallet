@@ -32,11 +32,11 @@ class Headear extends React.Component {
   }
 
   getCurrency() {
-    // const { receiveCurrency } = this.props;
+    const { receiveCurrency } = this.props;
 
     return (
       <span data-testid="header-currency-field">
-        BRL
+        { receiveCurrency }
       </span>
     );
   }
@@ -56,7 +56,7 @@ class Headear extends React.Component {
 const mapStateToProps = (state) => ({
   receiveEmail: state.user.email,
   receiveExpenses: [...state.wallet.expenses],
-  receiveCurrency: [...state.wallet.currencies],
+  receiveCurrency: state.wallet.currency,
 });
 
 Headear.propTypes = {
@@ -64,9 +64,7 @@ Headear.propTypes = {
   receiveExpenses: PropTypes.arrayOf(
     PropTypes.number,
   ).isRequired,
-  // receiveCurrency: PropTypes.arrayOf(
-  //   PropTypes.string,
-  // ).isRequired,
+  receiveCurrency: PropTypes.string.isRequired,
 };
 
 export default connect(mapStateToProps, null)(Headear);
