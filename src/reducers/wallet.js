@@ -13,7 +13,7 @@ function walletInfo(state = INITIAL_STATE, action) {
   case WALLET_EXPENSES:
     return {
       ...state,
-      expenses: [...action.expenses],
+      expenses: [...state.expenses, action.expenses],
     };
   case WALLET_CURRENCIES:
     return {

@@ -26,7 +26,12 @@ class Headear extends React.Component {
 
     return (
       <span data-testid="total-field">
-        {`Despesas Totais: ${receiveExpenses.reduce((acc, value) => acc + value, 0)} `}
+        { receiveExpenses
+          .map((expense) => ({
+            value: Number(expense.value),
+            rate: Number(expense.exchangeRates[expense.currency].ask),
+          }))
+          .reduce((acc, { value, rate }) => acc + (value * rate), 0).toFixed(2) }
       </span>
     );
   }
