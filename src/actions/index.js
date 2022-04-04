@@ -3,6 +3,7 @@ export const WALLET_EXPENSES = 'WALLET_EXPENSES';
 export const WALLET_CURRENCIES = 'WALLET_CURRENCIES';
 export const FAIL = 'FAIL';
 export const EXCHANGE = 'EXCHANGE';
+export const REMOVE_EXPENSE = 'REMOVE_EXPENSE';
 
 export const receiveUserInfo = (state) => (
   {
@@ -49,3 +50,8 @@ export const getCurrencies = () => (
     }
   }
 );
+
+export const removeExpense = (id) => ({
+  type: REMOVE_EXPENSE,
+  id,
+});

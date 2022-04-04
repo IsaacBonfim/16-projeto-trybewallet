@@ -11,6 +11,7 @@ class Wallet extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.saveExpense = this.saveExpense.bind(this);
+    this.editExpense = this.editExpense.bind(this);
 
     this.state = {
       value: '',
@@ -20,6 +21,7 @@ class Wallet extends React.Component {
       tag: 'Alimentacao',
       id: 0,
       oldId: null,
+      change: false,
       exchangeRates: null,
     };
   }
@@ -28,6 +30,21 @@ class Wallet extends React.Component {
     const { dispatch } = this.props;
 
     dispatch(getCurrencies());
+  }
+
+  editExpense = (expense) => {
+    const { id } = this.state;
+    this.setState({
+      value: expense.value,
+      description: expense.description,
+      currency: expense.currency,
+      method: expense.method,
+      tag: expense.tag,
+      id: expense.id,
+      oldId: id,
+      change: true,
+      exchangeRates: expense.exchangeRates,
+    });
   }
 
   handleChange({ target }) {
@@ -68,12 +85,13 @@ class Wallet extends React.Component {
       tag: 'Alimentacao',
       id: id < oldId ? oldId : id + 1,
       oldId: id,
+      change: false,
       exchangeRates: null,
     });
   }
 
   render() {
-    const { value, description, currency, method, tag } = this.state;
+    const { value, description, currency, method, tag, change } = this.state;
     const { receiveCurrencies } = this.props;
 
     return (
@@ -150,11 +168,11 @@ class Wallet extends React.Component {
             type="button"
             onClick={ this.saveExpense }
           >
-            Adicionar despesa
+            { change ? 'Editar despesa' : 'Adicionar despesa' }
           </button>
 
         </form>
-        <TableExpenses />
+        <TableExpenses editExpense={ this.editExpense } />
       </>
     );
   }

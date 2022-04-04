@@ -1,4 +1,5 @@
-import { WALLET_EXPENSES, WALLET_CURRENCIES, FAIL, EXCHANGE } from '../actions';
+import { WALLET_EXPENSES, WALLET_CURRENCIES, FAIL,
+  EXCHANGE, REMOVE_EXPENSE } from '../actions';
 
 const INITIAL_STATE = {
   currency: 'BRL',
@@ -29,6 +30,11 @@ function walletInfo(state = INITIAL_STATE, action) {
     return {
       ...state,
       exchange: { ...action.exchange },
+    };
+  case REMOVE_EXPENSE:
+    return {
+      ...state,
+      expenses: state.expenses.filter(({ id }) => id !== action.id),
     };
   default:
     return state;
