@@ -14,7 +14,14 @@ function walletInfo(state = INITIAL_STATE, action) {
   case WALLET_EXPENSES:
     return {
       ...state,
-      expenses: [...state.expenses, action.expenses],
+      expenses: state.expenses.some((expense) => expense.id === action.expenses.id) ? (
+        state.expenses.map((expense) => {
+          if (expense.id === action.expenses.id) {
+            return { ...expense, ...action.expenses };
+          }
+          return expense;
+        })
+      ) : [...state.expenses, action.expenses],
     };
   case WALLET_CURRENCIES:
     return {

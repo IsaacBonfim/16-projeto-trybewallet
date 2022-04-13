@@ -189,7 +189,9 @@ Wallet.propTypes = {
     PropTypes.string,
   ).isRequired,
   receiveExchange: PropTypes.objectOf(
-    PropTypes.object,
+    PropTypes.shape({
+      ask: PropTypes.string,
+    }),
   ).isRequired,
 };
 
