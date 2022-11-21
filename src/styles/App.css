@@ -1,0 +1,33 @@
+* {
+  color: var(--text);
+}
+
+.page {
+  height: 100vh;
+}
+
+.page , .login-section {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.title {
+  align-items: center;
+  display: flex;
+  font-size: 50px;
+  height: 30%;
+  justify-content: center;
+  letter-spacing: 3px;
+  text-shadow: 1px 1px
+    1px var(--text), 2px 2px
+    1px var(--text), 3px 3px
+    1px var(--background), 4px 4px
+    1px var(--background), 5px 5px
+    1px var(--background), 6px 6px
+    2px var(--tertiary), 7px 7px
+    3px var(--tertiary);
+  width: 100%;
+}
