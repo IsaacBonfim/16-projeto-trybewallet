@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { receiveUserInfo } from '../actions';
+import '../styles/Login.css';
 
 import Loading from '../components/Loading';
 
@@ -78,37 +79,45 @@ class Login extends React.Component {
     return (
       <>
         { loading ? <Loading /> : (
-          <div data-testid="page-login">
-            <h1>TrybeWallet</h1>
+          <main data-testid="page-login" className="page">
+            <section className="login-section">
+              <h1 className="title">TrybeWallet</h1>
 
-            <h3>Login</h3>
+              <div className="login-container">
+                <h3 className="sub-title">Login</h3>
 
-            <input
-              type="email"
-              name="email"
-              placeholder="e-mail"
-              data-testid="email-input"
-              value={ email }
-              onChange={ this.handleChange }
-            />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="e-mail"
+                  autoComplete="off"
+                  className="login-input"
+                  data-testid="email-input"
+                  value={ email }
+                  onChange={ this.handleChange }
+                />
 
-            <input
-              type="password"
-              name="senha"
-              placeholder="senha"
-              data-testid="password-input"
-              value={ senha }
-              onChange={ this.handleChange }
-            />
+                <input
+                  type="password"
+                  name="senha"
+                  placeholder="senha"
+                  className="login-input"
+                  data-testid="password-input"
+                  value={ senha }
+                  onChange={ this.handleChange }
+                />
 
-            <button
-              type="button"
-              disabled={ disableLoginButton }
-              onClick={ this.login }
-            >
-              Entrar
-            </button>
-          </div>
+                <button
+                  type="button"
+                  className="login-btn"
+                  disabled={ disableLoginButton }
+                  onClick={ this.login }
+                >
+                  Entrar
+                </button>
+              </div>
+            </section>
+          </main>
         )}
         { saved ? <Redirect to="/carteira" /> : '' }
       </>
