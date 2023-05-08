@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getCurrencies, receiveExpenses } from '../actions';
 import Header from '../components/Header';
 import TableExpenses from '../components/TableExpenses';
+import '../styles/Wallet.css';
 
 class Wallet extends React.Component {
   constructor() {
@@ -98,13 +99,28 @@ class Wallet extends React.Component {
       <>
         <Header />
 
-        <form>
+        <form className="w-container">
 
-          <label htmlFor="value">
+          <label className="label description" htmlFor="description">
+            Descrição da Despesa
+            <input
+              type="text"
+              name="description"
+              autoComplete="off"
+              className="description-input"
+              data-testid="description-input"
+              value={ description }
+              onChange={ this.handleChange }
+            />
+          </label>
+
+          <label className="label value" htmlFor="value">
             Valor
             <input
               type="text"
               name="value"
+              autoComplete="off"
+              className="value-input"
               data-testid="value-input"
               placeholder="0"
               value={ value }
@@ -112,22 +128,12 @@ class Wallet extends React.Component {
             />
           </label>
 
-          <label htmlFor="description">
-            Descrição da Despesa
-            <input
-              type="text"
-              name="description"
-              data-testid="description-input"
-              value={ description }
-              onChange={ this.handleChange }
-            />
-          </label>
-
-          <label htmlFor="currency">
+          <label className="label currency" htmlFor="currency">
             Moeda
             <select
               id="currency"
               name="currency"
+              className="w-select"
               data-testid="currency-input"
               value={ currency }
               onChange={ this.handleChange }
@@ -140,32 +146,41 @@ class Wallet extends React.Component {
             </select>
           </label>
 
-          <select
-            name="method"
-            data-testid="method-input"
-            value={ method }
-            onChange={ this.handleChange }
-          >
-            <option value="Dinheiro">Dinheiro</option>
-            <option value="Cartão de crédito">Cartão de crédito</option>
-            <option value="Cartão de débito">Cartão de débito</option>
-          </select>
+          <label className="label method" htmlFor="method">
+            Forma de Pagamento
+            <select
+              name="method"
+              className="w-select"
+              data-testid="method-input"
+              value={ method }
+              onChange={ this.handleChange }
+            >
+              <option value="Dinheiro">Dinheiro</option>
+              <option value="Cartão de crédito">Cartão de crédito</option>
+              <option value="Cartão de débito">Cartão de débito</option>
+            </select>
+          </label>
 
-          <select
-            name="tag"
-            data-testid="tag-input"
-            value={ tag }
-            onChange={ this.handleChange }
-          >
-            <option value="Alimentação">Alimentação</option>
-            <option value="Lazer">Lazer</option>
-            <option value="Trabalho">Trabalho</option>
-            <option value="Transporte">Transporte</option>
-            <option value="Saúde">Saúde</option>
-          </select>
+          <label className="label tag" htmlFor="tag">
+            Tipo
+            <select
+              name="tag"
+              className="w-select"
+              data-testid="tag-input"
+              value={ tag }
+              onChange={ this.handleChange }
+            >
+              <option value="Alimentação">Alimentação</option>
+              <option value="Lazer">Lazer</option>
+              <option value="Trabalho">Trabalho</option>
+              <option value="Transporte">Transporte</option>
+              <option value="Saúde">Saúde</option>
+            </select>
+          </label>
 
           <button
             type="button"
+            className="w-button"
             onClick={ this.saveExpense }
           >
             { change ? 'Editar despesa' : 'Adicionar despesa' }

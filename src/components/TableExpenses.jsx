@@ -2,48 +2,50 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { removeExpense } from '../actions';
+import "../styles/Table.css"
 
 class TableExpenses extends React.Component {
   render() {
     const { expenses, editExpense, dispatch } = this.props;
 
     return (
-      <table>
-        <thead>
-          <tr>
-            <th>Descrição</th>
-            <th>Tag</th>
-            <th>Método de pagamento</th>
-            <th>Valor</th>
-            <th>Moeda</th>
-            <th>Câmbio utilizado</th>
-            <th>Valor convertido</th>
-            <th>Moeda de conversão</th>
-            <th>Editar/Excluir</th>
+      <table className="w-table">
+        <thead className="w-thead">
+          <tr className="w-tr">
+            <th className="w-th">Descrição</th>
+            <th className="w-th">Tag</th>
+            <th className="w-th">Método de pagamento</th>
+            <th className="w-th">Valor</th>
+            <th className="w-th">Moeda</th>
+            <th className="w-th">Câmbio utilizado</th>
+            <th className="w-th">Valor convertido</th>
+            <th className="w-th">Moeda de conversão</th>
+            <th className="w-th">Editar / Excluir</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="w-tbody">
           { expenses.map((expense) => {
             const { description, tag, method, value,
               currency, exchangeRates, id } = expense;
 
             return (
-              <tr key={ id }>
-                <td>{description}</td>
-                <td>{tag}</td>
-                <td>{method}</td>
-                <td>{Number(value).toFixed(2)}</td>
-                <td>{exchangeRates[currency].name.split('/')[0]}</td>
-                <td>{Number(exchangeRates[currency].ask).toFixed(2)}</td>
-                <td>
+              <tr key={ id } className="w-tr">
+                <td className="w-td">{description}</td>
+                <td className="w-td">{tag}</td>
+                <td className="w-td">{method}</td>
+                <td className="w-td">{Number(value).toFixed(2)}</td>
+                <td className="w-td">{exchangeRates[currency].name.split('/')[0]}</td>
+                <td className="w-td">{Number(exchangeRates[currency].ask).toFixed(2)}</td>
+                <td className="w-td">
                   {
                     (Number(value) * Number(exchangeRates[currency].ask)).toFixed(2)
                   }
                 </td>
-                <td>Real</td>
-                <td>
+                <td className="w-td">Real</td>
+                <td className="w-td">
                   <button
                     type="button"
+                    className="w-table-btn"
                     data-testid="edit-btn"
                     onClick={ () => editExpense(expense) }
                   >
@@ -52,6 +54,7 @@ class TableExpenses extends React.Component {
 
                   <button
                     type="button"
+                    className="w-table-btn"
                     data-testid="delete-btn"
                     onClick={ () => dispatch(removeExpense(id)) }
                   >

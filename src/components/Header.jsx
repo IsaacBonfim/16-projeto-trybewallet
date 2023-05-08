@@ -15,9 +15,14 @@ class Headear extends React.Component {
     const { receiveEmail } = this.props;
 
     return (
-      <h4 data-testid="email-field">
-        {`e-mail: ${receiveEmail}`}
-      </h4>
+      <div>
+        <span className="h-text" data-testid="email-field">
+          { 'e-mail: ' }
+        </span>
+        <span className="user" data-testid="email-field">
+          {receiveEmail}
+        </span>
+      </div>
     );
   }
 
@@ -25,7 +30,7 @@ class Headear extends React.Component {
     const { receiveExpenses } = this.props;
 
     return (
-      <span data-testid="total-field">
+      <span className="h-text h-value" data-testid="total-field">
         { receiveExpenses
           .map((expense) => ({
             value: Number(expense.value),
@@ -40,19 +45,23 @@ class Headear extends React.Component {
     const { receiveCurrency } = this.props;
 
     return (
-      <span data-testid="header-currency-field">
-        { receiveCurrency }
+      <span className="h-text h-currency" data-testid="header-currency-field">
+        { ` ${receiveCurrency}` }
       </span>
     );
   }
 
   render() {
     return (
-      <header>
-        <span>TrybeWallet</span>
-        { this.getEmail() }
-        { this.getTotal() }
-        { this.getCurrency() }
+      <header className="header">
+        <span className="title t-margin">TrybeWallet</span>
+        <div className="h-container">
+          { this.getEmail() }
+          <div>
+            { this.getTotal() }
+            { this.getCurrency() }
+          </div>
+        </div>
       </header>
     );
   }

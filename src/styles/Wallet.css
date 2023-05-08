@@ -1,0 +1,105 @@
+.header {
+  align-items: center;
+  background-color: var(--primary);
+  border-bottom: 3px solid var(--tertiary);
+  box-shadow: 0 0 15px var(--tertiary);
+  display: grid;
+  grid-template-rows: auto auto auto;
+  margin-bottom: 1.8vh;
+}
+
+.t-margin {
+  margin: 0.5vh 0 2vh;
+}
+
+.h-container , .w-container {
+  background-color: var(--secondary);
+  border: 2px solid var(--background);
+  box-shadow: 0 0 14px 3px inset var(--primary);
+  display: flex;
+}
+
+.h-container {
+  border-radius: 8px;
+  justify-content: space-between;
+  justify-self: center;
+  margin: 4px 4px 8px;
+  padding: 0.7vh;
+  width: 99vw;
+}
+
+.w-container {
+  border-radius: 10px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 0 2.5vw 2vh;
+  padding: 1.5vh;
+  width: 95vw;
+}
+
+.h-text , .user , .label {
+  font-size: 1.3em;
+}
+
+.h-text {
+  font-weight: 600;
+}
+
+.label {
+  align-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 1vh 0;
+}
+
+.description {
+  width: 40vw;
+}
+
+.value , .currency {
+  width: 20vw;
+}
+
+.description-input , .value-input , .w-select {
+  background-color: var(--secondary);
+  border: 2px solid transparent;
+  border-bottom: 3px solid var(--tertiary);
+  border-radius: 5px;
+  font-size: 0.9em;
+  margin: 0 0.3vw;
+  outline: none;
+  padding: 2px 4px;
+}
+
+.description-input {
+  width: 70%;
+}
+
+.value-input {
+  width: 70%;
+}
+
+/* .w-select {
+  width: 50%;
+} */
+
+/* .method , .tag {
+  width: 20vw;
+} */
+
+.w-button {
+  background-color: var(--primary);
+  border: 3px solid var(--tertiary);
+  border-radius: 8px;
+  font-size: 1.8vh;
+  padding: 1.5vh 0;
+  transition: all 0.5s ease;
+  width: 10vw;
+}
+
+.w-button:hover {
+  box-shadow: 0 0 9px  inset var(--tertiary);
+  color: var(--tertiary);
+  font-weight: 600;
+  transition: all 0.5s ease;
+}
