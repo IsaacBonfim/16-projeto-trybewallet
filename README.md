@@ -17,3 +17,26 @@ Para obter as informações sobre os nomes, cotações e outros dados sobre as m
 </div>
 
 ## Instalação
+
+1. Clone o repositório.
+2. Instale as dependências usando o comando `npm install`.
+3. Inicie o aplicativo usando o comando `npm start`.
+4. Acesse [https://localhost:3000](https://localhost:3000) para visualizar no browser.
+
+## Sobre o Projeto
+
+As funcionalidades desta aplicação permitem que você cadastre uma despesa informando seu valor, a moeda utilizada para pagá-la e a forma de pagamento utilizada para efetuar o gasto. Além disso, também é possível editar despesas já cadastradas e excluir alguma despesa caso necessário.
+
+O projeto passado pela [Trybe](https://www.betrybe.com/) teve como objetivo verificar nossa capacidade de:
+
+- Criar um store Redux em aplicações React
+
+- Criar reducers no Redux em aplicações React
+
+- Criar actions no Redux em aplicações React
+
+- Criar dispatchers no Redux em aplicações React
+
+- Conectar Redux aos componentes React
+
+- Criar actions assíncronas na sua aplicação React que faz uso de Redux.
